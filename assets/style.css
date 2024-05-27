@@ -1,22 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Space+Grotesk:wght@300..700&display=swap");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 17px;
   color: #333;
 }
 * h1 {
   font-size: 3em;
   line-height: 1.2em;
+  font-family: "Space Grotesk", sans-serif;
 }
 * h2 {
   font-size: 2em;
+  font-family: "Space Grotesk", sans-serif;
 }
 * h3 {
+  font-family: "Space Grotesk", sans-serif;
   font-size: 1.5em;
 }
 * h4 {
+  font-family: "Space Grotesk", sans-serif;
   font-size: 1em;
 }
 * p {
@@ -55,7 +60,7 @@ header .container nav ul li a {
   color: #333;
 }
 header .container .btn-contato {
-  background: #00bfa5;
+  background: #2ec18d;
   padding: 0.8em 2em;
   border-radius: 5px;
   box-shadow: 0 2px 7px #00472d;
@@ -66,7 +71,7 @@ header .container .btn-contato a {
 }
 
 .hero {
-  background: #004d40;
+  background: #103d39;
   padding: 5em 1em;
 }
 .hero .container {
@@ -83,7 +88,7 @@ header .container .btn-contato a {
 }
 .hero .container .hero_text h1 {
   margin: 0 0 1em 0;
-  color: #00bfa5;
+  color: #2ec18d;
 }
 .hero .container .hero_text p {
   margin: 0 0 1em 0;
@@ -92,7 +97,7 @@ header .container .btn-contato a {
 .hero .container .hero_text .btn {
   width: fit-content;
   width: -moz-fit-content;
-  background: #00bfa5;
+  background: #2ec18d;
   padding: 1em 3em;
   border-radius: 5px;
   box-shadow: 0 2px 7px #00472d;
@@ -108,7 +113,7 @@ header .container .btn-contato a {
 
 .projects {
   padding: 5em 1em;
-  background: #f1f1f1;
+  background: #f5f7fa;
 }
 .projects .container {
   max-width: 1200px;
@@ -118,33 +123,50 @@ header .container .btn-contato a {
 .projects .container h2 {
   text-align: center;
   margin-bottom: 2em;
+  color: #103d39;
 }
-.projects .container .project-list {
+.projects .container .project_list {
+  overflow: hidden;
+}
+.projects .container .project_list .list_container {
+  width: -moz-max-content;
+  width: max-content;
   display: flex;
-  gap: 2em;
-  justify-content: center;
 }
-.projects .container .project-list .project {
-  width: 30%;
+.projects .container .project_list .list_container .project {
+  width: 300px;
   display: grid;
   background: #fff;
 }
-.projects .container .project-list .project .image_project img {
+.projects .container .project_list .list_container .project .image_project img {
   max-width: 100%;
   height: auto;
 }
-.projects .container .project-list .project .infos_project {
+.projects .container .project_list .list_container .project .infos_project {
   display: grid;
   gap: 1em;
   padding: 1em;
 }
-.projects .container .project-list .project .infos_project .title_project h3 {
+.projects .container .project_list .list_container .project .infos_project .title_project h3 {
   margin-top: 0;
   color: #123d39;
 }
-.projects .container .project-list .project .infos_project .description_project {
+.projects .container .project_list .list_container .project .infos_project .description_project {
   display: grid;
   gap: 0.7em;
+}
+.projects .container .project_list .list_container .box_list {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  gap: 1em;
+}
+.projects .container .project_list .list_container .box_list:not(.selected) {
+  display: none;
+}
+.projects .container .project_list .list_container:has(.selected) {
+  width: 100%;
+  display: flex;
 }
 
 .partners {
@@ -156,6 +178,7 @@ header .container .btn-contato a {
 .partners .container h2 {
   text-align: center;
   margin-bottom: 2em;
+  color: #103d39;
 }
 .partners .container .partner-logos {
   display: flex;
@@ -168,7 +191,7 @@ header .container .btn-contato a {
 }
 
 .careers {
-  background: #004d40;
+  background: #103d39;
   padding: 5em 1em;
 }
 .careers .container {
@@ -190,7 +213,7 @@ header .container .btn-contato a {
 }
 .careers .container .career_text h2 {
   margin: 0 0 1em 0;
-  color: #00bfa5;
+  color: #2ec18d;
 }
 .careers .container .career_text p {
   margin: 0 0 1em 0;
@@ -199,7 +222,7 @@ header .container .btn-contato a {
 .careers .container .career_text .btn {
   width: fit-content;
   width: -moz-fit-content;
-  background: #00bfa5;
+  background: #2ec18d;
   padding: 1em 3em;
   border-radius: 5px;
   box-shadow: 0 2px 7px #00472d;
@@ -224,7 +247,7 @@ footer .container .footer-logo h1 {
   margin: 0;
 }
 footer .container .footer-logo h1 span {
-  color: #00bfa5;
+  color: #2ec18d;
 }
 footer .container .footer_nav ul {
   list-style: none;
@@ -251,7 +274,7 @@ footer .footer_bottom p {
 
 .how-we-work {
   padding: 5em 1em;
-  background: #f1f1f1;
+  background: #f5f7fa;
 }
 .how-we-work .container {
   max-width: 1200px;
@@ -263,7 +286,7 @@ footer .footer_bottom p {
 .how-we-work .container .btn {
   width: fit-content;
   width: -moz-fit-content;
-  background: #00bfa5;
+  background: #2ec18d;
   padding: 1em 3em;
   margin: auto;
   text-decoration: none;
@@ -293,7 +316,7 @@ footer .footer_bottom p {
   gap: 4em;
 }
 .about-us .container .image_about h1 {
-  color: #00bfa5;
+  color: #2ec18d;
   margin-bottom: 2em;
 }
 .about-us .container .image_about .about_image img {
@@ -314,6 +337,6 @@ footer .footer_bottom p {
   margin-bottom: 2em;
 }
 .about-us .container .about-content .about-text p {
-  color: #DFDEDE;
+  color: #dfdede;
   margin-bottom: 1em;
 }/*# sourceMappingURL=style.css.map */

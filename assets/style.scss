@@ -1,7 +1,10 @@
-$primary-color: #004d40;
-$secondary-color: #00bfa5;
-$light-background: #e0f7fa;
-$dark-background: #f1f1f1;
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Space+Grotesk:wght@300..700&display=swap");
+
+$primary-color: #103d39;
+$secondary-color: #2ec18d;
+$complete-color: #f4d19d;
+$light-background: #dfe6e4;
+$dark-background: #5e5e5e;
 $text-color: #333;
 $white-color: #fff;
 
@@ -9,20 +12,24 @@ $white-color: #fff;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 17px;
   color: $text-color;
   h1 {
     font-size: 3em;
     line-height: 1.2em;
+    font-family: "Space Grotesk", sans-serif;
   }
   h2 {
     font-size: 2em;
+    font-family: "Space Grotesk", sans-serif;
   }
   h3 {
+    font-family: "Space Grotesk", sans-serif;
     font-size: 1.5em;
   }
   h4 {
+    font-family: "Space Grotesk", sans-serif;
     font-size: 1em;
   }
   p {
@@ -122,7 +129,7 @@ header {
 
 .projects {
   padding: 5em 1em;
-  background: $dark-background;
+  background: #f5f7fa;
   .container {
     max-width: 1200px;
     display: grid;
@@ -131,37 +138,51 @@ header {
     h2 {
       text-align: center;
       margin-bottom: 2em;
+      color: $primary-color;
     }
-
-    .project-list {
-      display: flex;
-      gap: 2em;
-      justify-content: center;
-
-      .project {
-        width: 30%;
-        display: grid;
-        background: $white-color;
-        .image_project {
-          img {
-            max-width: 100%;
-            height: auto;
-          }
-        }
-        .infos_project {
+    .project_list {
+      overflow: hidden;
+      .list_container {
+        width: max-content;
+        display: flex;
+        .project {
+          width: 300px;
           display: grid;
-          gap: 1em;
-          padding: 1em;
-          .title_project {
-            h3 {
-              margin-top: 0;
-              color: #123d39;
+          background: $white-color;
+          .image_project {
+            img {
+              max-width: 100%;
+              height: auto;
             }
           }
-          .description_project {
+          .infos_project {
             display: grid;
-            gap: 0.7em;
+            gap: 1em;
+            padding: 1em;
+            .title_project {
+              h3 {
+                margin-top: 0;
+                color: #123d39;
+              }
+            }
+            .description_project {
+              display: grid;
+              gap: 0.7em;
+            }
           }
+        }
+        .box_list {
+          width: 100%;
+          display: flex;
+          justify-content: space-around;
+          gap: 1em;
+          &:not(.selected) {
+            display: none;
+          }
+        }
+        &:has(.selected) {
+          width: 100%;
+          display: flex;
         }
       }
     }
@@ -175,6 +196,7 @@ header {
     h2 {
       text-align: center;
       margin-bottom: 2em;
+      color: $primary-color;
     }
     .partner-logos {
       display: flex;
@@ -283,7 +305,7 @@ footer {
 //pages
 .how-we-work {
   padding: 5em 1em;
-  background: $dark-background;
+  background: #f5f7fa;
   .container {
     max-width: 1200px;
     display: grid;
@@ -351,7 +373,7 @@ footer {
         margin-bottom: 2em;
 
         p {
-          color: #DFDEDE;
+          color: #dfdede;
           margin-bottom: 1em;
         }
       }
