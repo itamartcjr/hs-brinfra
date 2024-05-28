@@ -53,6 +53,9 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 1em 0;
+    .btn_nav {
+      display: none;
+    }
     nav {
       ul {
         list-style: none;
@@ -66,6 +69,9 @@ header {
             color: $text-color;
           }
         }
+      }
+      .btn-contato {
+        display: none;
       }
     }
     .btn-contato {
@@ -134,7 +140,6 @@ header {
     max-width: 1200px;
     display: grid;
     gap: 2em;
-
     h2 {
       text-align: center;
       margin-bottom: 2em;
@@ -142,12 +147,15 @@ header {
     }
     .project_list {
       overflow: hidden;
+      display: grid;
+      gap: 3em;
       .list_container {
         width: max-content;
         display: flex;
         .project {
           width: 300px;
           display: grid;
+          align-content: baseline;
           background: $white-color;
           .image_project {
             img {
@@ -168,14 +176,33 @@ header {
             .description_project {
               display: grid;
               gap: 0.7em;
+              ::before {
+                content: "◢";
+                margin-right: 5px; /* Adicione um espaço entre o símbolo e o texto */
+                color: #000; /* Altere a cor se necessário */
+              }
+            }
+            .status_project {
+              p {
+                ::before {
+                  content: "✓";
+                  margin-right: 5px; /* Adicione um espaço entre o símbolo e o texto */
+                  color: #000; /* Altere a cor se necessário */
+                }
+              }
+            }
+            .local_project {
+              display: flex;
+              align-items: center;
+              gap: 0.5em;
             }
           }
         }
         .box_list {
           width: 100%;
           display: flex;
-          justify-content: space-around;
-          gap: 1em;
+          justify-content: center;
+          gap: 1.5em;
           &:not(.selected) {
             display: none;
           }
@@ -183,6 +210,20 @@ header {
         &:has(.selected) {
           width: 100%;
           display: flex;
+        }
+      }
+      .bullets {
+        display: flex;
+        justify-content: center;
+        gap: 3em;
+        .bullet {
+          width: 10px;
+          height: 10px;
+          background: #22222233;
+          cursor: pointer;
+          &.selected {
+            background: #222222;
+          }
         }
       }
     }
@@ -375,6 +416,207 @@ footer {
         p {
           color: #dfdede;
           margin-bottom: 1em;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 800px), (orientation: portrait) {
+  * {
+    font-size: 16px;
+  }
+  .container {
+    width: 100%;
+  }
+
+  header {
+    padding: 0 1em;
+    .container {
+      max-width: 1200px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1em 0;
+      .logo {
+        a {
+          svg {
+            width: 100px;
+          }
+        }
+      }
+      nav {
+        width: 100%;
+        height: 100%;
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: $white-color;
+        ul {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap: 1.5em;
+          li {
+            display: inline;
+            a {
+              color: $text-color;
+            }
+          }
+        }
+      }
+      .btn_nav {
+        display: block;
+        &.open {
+          ~ nav {
+            display: none;
+          }
+        }
+      }
+      .btn-contato {
+        display: none;
+      }
+    }
+  }
+  .hero {
+    padding: 3em 1.5em;
+    .container {
+      grid-template-columns: 1fr;
+      gap: 2em;
+      .hero_text {
+        h1 {
+          font-size: 2.5em;
+        }
+        p {
+          font-size: 1em;
+        }
+        .btn {
+          padding: 0.8em 2em;
+        }
+      }
+      .hero_image {
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+  .partners {
+    padding: 3em 1.5em;
+    .container {
+      h2 {
+        text-align: center;
+        margin-bottom: 2em;
+        color: $primary-color;
+      }
+      .partner-logos {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 2em;
+        img {
+          width: 120px;
+        }
+      }
+    }
+  }
+  .projects {
+    padding: 3em 1.5em;
+    .container {
+      gap: 1em;
+      .project_list {
+        .list_container {
+          .project {
+            width: 100%;
+            .image_project {
+              img {
+                max-width: 100%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .careers {
+    padding: 3em 1.5em;
+    .container {
+      grid-template-columns: 1fr;
+      gap: 2em;
+      .career_images {
+        img {
+          width: 100%;
+        }
+      }
+      .career_text {
+        h2 {
+          font-size: 2em;
+        }
+        p {
+          font-size: 0.9em;
+        }
+        .btn {
+          padding: 0.8em 2em;
+        }
+      }
+    }
+  }
+  footer {
+    padding: 1em;
+    .container {
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      padding-bottom: 2em;
+      .footer-logo {
+        h1 {
+          font-size: 2em;
+        }
+      }
+      .footer_nav {
+        ul {
+          gap: 2em;
+        }
+      }
+    }
+    .footer_bottom {
+      p {
+        font-size: 0.7em;
+      }
+    }
+  }
+  .how-we-work {
+    padding: 3em 1.5em;
+    .container {
+      gap: 1em;
+    }
+  }
+  .about-us {
+    padding: 3em 1.5em;
+    .container {
+      grid-template-columns: 1fr;
+      gap: 2em;
+      .image_about {
+        h1 {
+          font-size: 2em;
+        }
+        .about_image {
+          img {
+            max-width: 100%;
+          }
+        }
+      }
+      .about-content {
+        .about-text {
+          p {
+            font-size: 0.9em;
+          }
         }
       }
     }

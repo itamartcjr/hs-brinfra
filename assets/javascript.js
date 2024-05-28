@@ -1,40 +1,85 @@
 "use strict";
 
+const projectList = document.querySelector(".project_list");
+const containerProjects = document.querySelector(".list_container");
+let projects = Array.from(document.querySelectorAll(".project"));
 
-function splitObjectIntoChunks() {
-    const projectList = document.querySelector(".project_list");
-    const contianerProjects = document.querySelector(".list_container");
-    const projects = document.querySelectorAll(".project");
-    const boxlists = document.querySelectorAll(".box_list");
+const bullets = document.querySelector(".bullets");
 
-    const quantityProjectsInners = Math.floor(projectList.clientWidth / projects[0].clientWidth);
+let boxLists;
+let bulletAll;
+let isResize = false;
 
-    const entries = Object.entries(projects);
+function splitObjectIntoChunks(isResize) {
+    boxLists = document.querySelectorAll(".box_list");
+    bulletAll = document.querySelectorAll(".bullet");
 
+    const selectedBoxIndex = Array.from(boxLists).findIndex(box => box.classList.contains("selected"));
 
-    console.log(quantityProjectsInners);
+    const quantityProjectsInners = Math.floor(projectList.clientWidth / 300);
 
-    for(let box of boxlists){
+    boxLists.forEach((box, i) => {
         box.remove();
-    }
+        bulletAll[i].remove();
+    });
 
-    for (let i = 0; i < entries.length; i += quantityProjectsInners) {
-        const div = document.createElement("div");
-        div.classList.add("box_list");
-        contianerProjects.appendChild(div);
+    for (let i = 0; i < projects.length; i += quantityProjectsInners) {
+        const divBox = document.createElement("div");
+        const ultimo = i + quantityProjectsInners >= projects.length;
 
-        const arrays = entries.slice(i, i + quantityProjectsInners).map(entry => entry[1]);
-        arrays.forEach((array) => {
-            div.appendChild(array);
+        divBox.classList.add("box_list");
+        if (i / quantityProjectsInners === selectedBoxIndex) {
+            divBox.classList.add("selected");
+        } else if (isResize && ultimo && -1 === selectedBoxIndex) {
+            divBox.classList.add("selected");
+        }
+        containerProjects.appendChild(divBox);
+
+        const chunk = projects.slice(i, i + quantityProjectsInners);
+        chunk.forEach(project => {
+            divBox.appendChild(project);
         });
+
+        const divBullet = document.createElement("div");
+        if (i / quantityProjectsInners === selectedBoxIndex) {
+            divBullet.classList.add("selected");
+        } else if (isResize && ultimo && -1 === selectedBoxIndex) {
+            divBullet.classList.add("selected");
+        }
+        divBullet.classList.add("bullet");
+        bullets.appendChild(divBullet);
     }
+
+    updateBulletListeners();
 }
 
-splitObjectIntoChunks()
-window.addEventListener('resize', () => {
-    console.log("resize");
-    splitObjectIntoChunks()
+function updateBulletListeners() {
+    bulletAll = document.querySelectorAll(".bullet");
+    boxLists = document.querySelectorAll(".box_list");
+
+    bulletAll.forEach((bullet, i) => {
+        bullet.addEventListener("click", () => {
+            boxLists.forEach(box => box.classList.remove("selected"));
+            bulletAll.forEach(bullet => bullet.classList.remove("selected"));
+            boxLists[i].classList.add("selected");
+            bullet.classList.add("selected");
+        });
+    });
 }
-);
-const boxList = document.querySelectorAll(".box_list");
-boxList[0].classList.add("selected");
+
+splitObjectIntoChunks(false);
+window.addEventListener('resize', () => {
+    projects = Array.from(document.querySelectorAll(".project"));
+    splitObjectIntoChunks(true);
+});
+
+if (projects.length > 0) {
+    boxLists = document.querySelectorAll(".box_list");
+    bulletAll = document.querySelectorAll(".bullet");
+
+    if (boxLists.length > 0 && bulletAll.length > 0) {
+        boxLists[0].classList.add("selected");
+        bulletAll[0].classList.add("selected");
+    }
+    updateBulletListeners();
+}
