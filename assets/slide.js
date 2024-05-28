@@ -16,7 +16,7 @@ function splitObjectIntoChunks(isResize) {
 
     const selectedBoxIndex = Array.from(boxLists).findIndex(box => box.classList.contains("selected"));
 
-    const quantityProjectsInners = Math.floor(projectList.clientWidth / 300);
+    const quantityProjectsInners = Math.floor(projectList.clientWidth / 320);
 
     boxLists.forEach((box, i) => {
         box.remove();
