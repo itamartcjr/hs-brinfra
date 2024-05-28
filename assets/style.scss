@@ -47,6 +47,9 @@ $white-color: #fff;
 
 header {
   padding: 0 1em;
+  position: sticky;
+  top: 0;
+  background: $white-color;
   .container {
     max-width: 1200px;
     display: flex;
@@ -55,6 +58,7 @@ header {
     padding: 1em 0;
     .btn_nav {
       display: none;
+      z-index: 10;
     }
     nav {
       ul {
@@ -439,6 +443,7 @@ footer {
       align-items: center;
       padding: 1em 0;
       .logo {
+        z-index: 10;
         a {
           svg {
             width: 100px;
@@ -474,7 +479,13 @@ footer {
         display: block;
         &.open {
           ~ nav {
-            display: none;
+            display: grid;
+            justify-content: center;
+            align-content: center;
+            gap: 4em;
+            .btn-contato {
+              display: block;
+            }
           }
         }
       }
@@ -571,9 +582,10 @@ footer {
     padding: 1em;
     .container {
       flex-direction: column;
-      align-items: flex-start;
+      align-items: center;
       justify-content: center;
       padding-bottom: 2em;
+      gap: 1em;
       .footer-logo {
         h1 {
           font-size: 2em;
