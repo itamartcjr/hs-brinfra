@@ -32,6 +32,11 @@
   text-decoration: none;
 }
 
+.btn a {
+  font-family: "Space Grotesk", sans-serif;
+  letter-spacing: 2px;
+}
+
 .container {
   width: 90%;
   margin: 0 auto;
