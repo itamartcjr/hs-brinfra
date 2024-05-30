@@ -68,6 +68,7 @@ header .container nav ul {
 }
 header .container nav ul li {
   display: inline;
+  font-family: "Space Grotesk", sans-serif;
 }
 header .container nav ul li a {
   color: #333;
@@ -345,8 +346,11 @@ footer .footer_bottom p {
   color: #fff;
   text-transform: uppercase;
 }
+.how-we-work .container .image {
+  margin-top: 2em;
+}
 .how-we-work .container .image img {
-  max-width: 100%;
+  width: 100%;
   height: auto;
   display: block;
   margin: 0 auto;

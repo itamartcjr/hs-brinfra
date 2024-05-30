@@ -76,6 +76,7 @@ header {
         gap: 1.5em;
         li {
           display: inline;
+          font-family: "Space Grotesk", sans-serif;
           a {
             color: $text-color;
           }
@@ -379,8 +380,9 @@ footer {
       }
     }
     .image {
+      margin-top: 2em;
       img {
-        max-width: 100%;
+        width: 100%;
         height: auto;
         display: block;
         margin: 0 auto;
