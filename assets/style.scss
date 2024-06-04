@@ -314,6 +314,7 @@ footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
     padding-bottom: 3em;
     border-bottom: 1px solid #e4ebf3;
     .footer-logo {
@@ -344,6 +345,12 @@ footer {
         }
       }
     }
+  }
+  .icons_link{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 1em 0;
   }
   .footer_bottom {
     width: 100%;
