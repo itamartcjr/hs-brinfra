@@ -314,10 +314,18 @@ footer .container .footer_nav ul li a {
   text-decoration: none;
 }
 footer .icons_link {
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 1em 0;
+}
+footer .icons_link .redes {
+  display: flex;
+  gap: 18px;
+}
+footer .icons_link .redes svg {
+  padding: 0px;
 }
 footer .footer_bottom {
   width: 100%;

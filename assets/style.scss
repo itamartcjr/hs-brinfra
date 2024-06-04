@@ -347,10 +347,18 @@ footer {
     }
   }
   .icons_link{
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     padding: 1em 0;
+    .redes{
+      display: flex;
+      gap: 18px;
+      svg{
+        padding: 0px;
+      }
+    }
   }
   .footer_bottom {
     width: 100%;
